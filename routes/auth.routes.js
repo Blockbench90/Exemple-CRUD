@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken')
 const config = require("config")
 
 
-//  /api/auth/register
+//  /api/auth/register так будет выглядеть путь после конкотенации, при регистрации пользователя
 router.post('/register',
     [
         check('email', "Некорректный email").isEmail(),
@@ -24,7 +24,7 @@ router.post('/register',
                 })
             }
 
-            const {email, password} = req.body
+            const {email, password} = req.body  // в поле req сюда придут параметры, что мы отправляем с фронта
             const candidate = await User.findOne({email})
             if (candidate) {
                 return res.status(400).json({massage: "Такой пользователь уже существует"})
@@ -35,12 +35,12 @@ router.post('/register',
             await user.save()
 
             res.status(201).json({message: "Пользователь создан"})
-        } catch (e) {
+        } catch (e) {   //обработка ошибок, в случае такового, отослать код ошибки (500) и сообщение в json формате
             res.status(500).json({message: 'Что-то пошло не так, попробуйте снова'})
         }
     })
 
-//  /api/auth/login
+//  /api/auth/login так будет выглядеть путь после конкотенации, при регистрации пользователя
 router.post('/login',
     [
         check('email', "Введите корректный email").normalizeEmail().isEmail(),
