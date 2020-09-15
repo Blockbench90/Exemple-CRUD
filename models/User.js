@@ -1,10 +1,13 @@
 const {Schema, model, Types} = require('mongoose')
 
 const schema = new Schema({
-    email: {type: String, required: true, unique: true},
+    email: {type: String, required: true, unique: true},  //required - обязательно, unique - уникальное
     password: {type: String, required: true},
-    links: [{ type: Types.ObjectId, ref: 'Link'}]
-})
+    links: [{ type: Types.ObjectId, ref: 'Link'}]   // у каждого пользователя будет свой массив ссылок, это поле,
+})                                                  // как раз для этого
+
+//Types.ObjectId связывает пользователя с базой данных
+//ref: 'Link' к этой модели, которая создана в модели Link
 
 module.exports = model('User', schema)  // модель называется "User", и создана на основе схемы
 

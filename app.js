@@ -30,6 +30,7 @@ async function start () {
             useUnifiedTopology: true,
             useCreateIndex: true
         })
+        app.listen(PORT, ()=>console.log(`App has been started an port ${PORT}`)) //прослушиваем Порт 5000, который для удобства вынес в файл config
     }catch (e) {
         console.log('Server Error', e.message)    //в случае если что-то пошло не так, выдаем ошибку
         process.exit(1)                         // и завершаем процесс
@@ -37,4 +38,3 @@ async function start () {
 }
 start();
 
-app.listen(PORT, ()=>console.log(`App has been started an port ${PORT}`)) //прослушиваем Порт 5000, который для удобства вынес в файл config
