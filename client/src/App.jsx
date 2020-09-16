@@ -10,7 +10,7 @@ import {Loader} from "./components/Loader";
 function App() {
     const {token, login, logout, userId, ready} = useAuth()
     const isAuthenticated = !!token
-    const routes = useRoutes(isAuthenticated)
+    const routes = useRoutes(isAuthenticated)       //здесь мы и получим на входе токен, если пользователь зарегался, и проведем его по страницам
     if(!ready){
         return <Loader/>
     }
@@ -20,7 +20,7 @@ function App() {
         }}>
             {isAuthenticated && <Navbar/>}
             <div className="container">
-                {routes}
+                {routes}                        //отображение наших роутов
             </div>
         </AuthContext.Provider>
     );
