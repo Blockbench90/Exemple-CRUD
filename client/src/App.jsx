@@ -1,7 +1,7 @@
 import React from 'react';
 import {useRoutes} from "./routes";
 import {useAuth} from "./hooks/auth.hook";
-import "materialize-css"
+import "materialize-css"                            //та самая библиотека с готовыми стилями
 import {AuthContext} from "./context/AuthContext";
 import {Navbar} from "./components/Navbar";
 import {Loader} from "./components/Loader";
