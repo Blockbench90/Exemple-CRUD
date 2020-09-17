@@ -7,9 +7,9 @@ export const useHttp = () => {                      // делаем хук, ко
     const request = useCallback(async (url, method = 'GET', body = null, headers = {}) => {     //useCallback - чтобы не входить в рекурсию, и 4 параметра для работы
         setLoading(true)                                                //флаг о начале загрузки
         try {
-            if (body) {
-                body = JSON.stringify(body)
-                headers['Content-Type'] = 'application/json'
+            if (body) { //если в ответе приходит обьект
+                body = JSON.stringify(body)     //то его нужно привести к строке
+                headers['Content-Type'] = 'application/json'    //и серверу нужно четко указать, что мы работаем с таким форматом
             }
             const response = await fetch(url, {body, method, headers})  //нативный API, принимает два параметра, адрес и обьект хедерсов
             const data = await response.json()                          //приводим data в json формат

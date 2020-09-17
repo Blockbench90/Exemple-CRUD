@@ -2,14 +2,14 @@ import React, {useContext} from "react";
 import {NavLink, useHistory} from "react-router-dom";
 import {AuthContext} from "../context/AuthContext";
 
-
+//наше навигационное меню
 export const Navbar = () => {
-    const auth = useContext(AuthContext)
+    const auth = useContext(AuthContext)    //достаем наш контекст
     const history = useHistory()
     const logoutHandler = event => {
-        event.preventDefault()
-        auth.logout()
-        history.push('/')
+        event.preventDefault()  //отменим дефолтное поведение ссылки, чтобы не обрабатывалась
+        auth.logout()           //вызываем метод выхода
+        history.push('/')       //и чтобы редиректнуться с помощью хистори
     }
     return (
         <nav>

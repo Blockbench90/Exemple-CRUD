@@ -1,7 +1,7 @@
 import {createContext} from "react";
 
-
-function noop() {}
+//создадим базовую составляющую для контекста, чтобы пользоваться данными с бека во всем приложении
+function noop() {}   //заглушка
 export const AuthContext = createContext({
     token: null,
     userId: null,

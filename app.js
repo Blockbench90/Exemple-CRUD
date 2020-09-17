@@ -5,10 +5,10 @@ const path = require('path')
 
 const app = express()  //переменная теперь будет результатом вызова функции, тоесть иметь в себе все зависимости и методы express
 
-app.use(express.json({extended: true}))
+app.use(express.json({extended: true}))  //мидлвеер для перевода в формат json
 
 app.use('/api/auth', require('./routes/auth.routes'))  //регистрируем роуты для обработки запросов с фронта, где первый параметр - префикс к пути
-app.use('/api/link', require('./routes/link.routes'))  //второй сам роут, который будет в отдельной файле routes.js
+app.use('/api/link', require('./routes/link.routes'))  //второй сам роут, файл
 app.use('/t', require('./routes/redirect.routes'))      //Router по сути мидлвеер, тоесть промежуточный слой, для соединение и передачи чего-то с чем-то
 
 if(process.env.NODE_ENV === 'production') {

@@ -111,6 +111,10 @@ npm install materialize-css@next
   }
 }
 
+11. Shortid
+библиотека с помощью коротой будем генерировать короткие ссылки
+npm i shortid для установки
+
 
 
 

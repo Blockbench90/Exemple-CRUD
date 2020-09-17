@@ -8,19 +8,19 @@ import {Loader} from "./components/Loader";
 
 
 function App() {
-    const {token, login, logout, userId, ready} = useAuth()
-    const isAuthenticated = !!token
+    const {token, login, logout, userId, ready} = useAuth()     //достаем из нашего хука нужные данные
+    const isAuthenticated = !!token                 //для того, чтобы понимать, зарегистрированный или нет пользователь
     const routes = useRoutes(isAuthenticated)       //здесь мы и получим на входе токен, если пользователь зарегался, и проведем его по страницам
     if(!ready){
         return <Loader/>
     }
     return (
-        <AuthContext.Provider value={{
+        <AuthContext.Provider value={{          //подключаем наш контект
             token, login, logout, userId, isAuthenticated
         }}>
-            {isAuthenticated && <Navbar/>}
+           {isAuthenticated && <Navbar/>} {/* и если пользователь зарегистрирован, покажем ему и навбар */}
             <div className="container">
-                {routes}                        //отображение наших роутов
+                {routes}
             </div>
         </AuthContext.Provider>
     );
